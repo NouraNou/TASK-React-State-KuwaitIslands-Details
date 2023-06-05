@@ -1,24 +1,22 @@
-
-import './App.css';
-import Header from './Components/Header';
-import IslandForm from './Components/IslandForm';
-import IslandList from './Components/IslandList';
-
+import "./App.css";
+import Header from "./Components/Header";
+import IslandForm from "./Components/IslandForm";
+import IslandList from "./Components/IslandList";
+import { useState } from "react";
 
 function App() {
-
-  let island = {
+  const [island, setIsland] = useState({
     name: "Boubyan",
-    img: "http://photos.wikimapia.org/p/00/02/20/48/92_big.jpg"
-  }
+    img: "http://photos.wikimapia.org/p/00/02/20/48/92_big.jpg",
+  });
 
   return (
-
     <div>
       <Header />
 
       <div className="homePage">
-        <IslandList />
+        <IslandList setIsland={setIsland} />
+        {/* name (setIsland)= the value (setIsland) */}
         <IslandForm island={island} />
       </div>
     </div>

@@ -2,12 +2,13 @@ import { useState } from "react";
 import islands from "../data/islands";
 import Island from "./Island";
 
-export default function IslandList() {
+export default function IslandList({ setIsland }) {
+  //passed setIsland as a prop after creating a component on app.js
   const [query, setQuery] = useState("");
 
   let islandsArray = islands
     .filter((island) => island.name.toLowerCase().includes(query.toLowerCase()))
-    .map((island) => <Island island={island} />);
+    .map((island) => <Island island={island} setIsland={setIsland} />);
   return (
     <div>
       <input
